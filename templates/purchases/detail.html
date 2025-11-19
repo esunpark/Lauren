@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}거래: {{ purchase.item.title }}{% endblock %}
+{% block content %}
+  <h1>{{ purchase.item.title }} 거래</h1>
+  <p class="meta">구매자: {{ purchase.buyer.username }} · 판매자: {{ purchase.item.seller.username }} · 상태: {{ purchase.status }}</p>
+
+  <section class="chat">
+    <h2>채팅</h2>
+    <ul class="chat-log">
+      {% for message, translation in message_data %}
+        <li class="chat-message {% if message.sender_id == current_user.id %}me{% endif %}">
+          <div class="bubble">
+            <p class="original">{{ message.body }}</p>
+            {% if translation.translated != message.body %}
+              <p class="translated">{{ translation.translated }}</p>
+            {% endif %}
+            <span class="meta">{{ message.sender.username }} · {{ message.created_at.strftime('%Y-%m-%d %H:%M') }}</span>
+          </div>
+        </li>
+      {% else %}
+        <li>아직 메시지가 없습니다. 첫 메시지를 보내보세요.</li>
+      {% endfor %}
+    </ul>
+
+    <form method="post" action="{{ url_for('send_message', purchase_id=purchase.id) }}" class="form-card">
+      <label>메시지
+        <textarea name="body" rows="3" required></textarea>
+      </label>
+      <button type="submit" class="btn">보내기</button>
+    </form>
+  </section>
+
+  {% if current_user.id == purchase.item.seller_id and purchase.status != 'completed' %}
+    <form method="post" action="{{ url_for('complete_purchase', purchase_id=purchase.id) }}" class="complete-form">
+      <button type="submit" class="btn secondary">거래 완료</button>
+    </form>
+  {% endif %}
+{% endblock %}

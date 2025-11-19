@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+  <section class="hero">
+    <h1>브릭 마켓에 오신 것을 환영합니다</h1>
+    <p>희귀한 블록 세트를 사고 팔고, 즉시 번역되는 채팅으로 협상해 보세요.</p>
+    <div class="hero-actions">
+      <a class="btn" href="{{ url_for('items') }}">상품 둘러보기</a>
+      {% if current_user %}
+        <a class="btn secondary" href="{{ url_for('new_item') }}">상품 등록하기</a>
+      {% else %}
+        <a class="btn secondary" href="{{ url_for('register') }}">회원가입</a>
+      {% endif %}
+    </div>
+  </section>
+
+  <section>
+    <h2>최근 등록된 상품</h2>
+    <div class="grid">
+      {% for item in latest_items %}
+        <article class="card">
+          <h3><a href="{{ url_for('item_detail', item_id=item.id) }}">{{ item.title }}</a></h3>
+          <p>{{ item.description[:120] }}{% if item.description|length > 120 %}...{% endif %}</p>
+          <p class="price">${{ '%.2f'|format(item.price) }}</p>
+          <p class="meta">판매자: {{ item.seller.username }} · {{ item.created_at.strftime('%Y-%m-%d') }}</p>
+        </article>
+      {% else %}
+        <p>아직 등록된 상품이 없습니다.</p>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section>
+    <h2>진행 중인 거래</h2>
+    <ul class="timeline">
+      {% for purchase in latest_purchases %}
+        <li>
+          <strong>{{ purchase.item.title }}</strong> — {{ purchase.buyer.username }} ↔ {{ purchase.item.seller.username }} ({{ purchase.status }})
+        </li>
+      {% else %}
+        <li>아직 거래가 없습니다.</li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}{{ item.title }} · Lauren Brick Market{% endblock %}
+{% block content %}
+  <article class="card">
+    <h1>{{ item.title }}</h1>
+    <p>{{ item.description }}</p>
+    <p class="price">${{ '%.2f'|format(item.price) }}</p>
+    <p class="meta">판매자: {{ item.seller.username }} ({{ supported_languages[item.seller.language] }})</p>
+    <p class="meta">상태: {{ item.status }}</p>
+
+    {% if current_user %}
+      {% if current_user.id == item.seller_id %}
+        <p class="info">내가 등록한 상품입니다.</p>
+      {% elif item.status == 'sold' %}
+        <p class="info">이미 판매된 상품입니다.</p>
+      {% else %}
+        <form method="post" action="{{ url_for('start_purchase', item_id=item.id) }}">
+          <button type="submit" class="btn">구매 채팅 시작</button>
+        </form>
+        {% if existing_purchase %}
+          <p><a href="{{ url_for('purchase_detail', purchase_id=existing_purchase.id) }}">채팅으로 이동</a></p>
+        {% endif %}
+      {% endif %}
+    {% else %}
+      <p><a href="{{ url_for('login') }}">로그인</a> 후 구매할 수 있습니다.</p>
+    {% endif %}
+  </article>
+{% endblock %}

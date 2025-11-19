@@ -1,0 +1,197 @@
+:root {
+  font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #f4f6fb;
+  color: #1a1a1a;
+}
+
+body {
+  margin: 0;
+  background: #f4f6fb;
+}
+
+a {
+  color: #0055aa;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #ffffff;
+  border-bottom: 1px solid #e1e5ee;
+}
+
+.site-header nav a {
+  margin-left: 1rem;
+}
+
+.user-pill {
+  background: #eef2ff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  margin-left: 1rem;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+.hero {
+  background: linear-gradient(135deg, #f8fbff, #eef3ff);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
+  margin-bottom: 2rem;
+}
+
+.hero-actions .btn {
+  margin-right: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: #ffffff;
+  padding: 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.06);
+}
+
+.price {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.meta {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.btn {
+  display: inline-block;
+  background: #ff7f50;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn.secondary {
+  background: #0055aa;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.form-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.04);
+}
+
+.form-card input,
+.form-card textarea,
+.form-card select {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #d0d7e6;
+  font-size: 1rem;
+}
+
+.flash-messages {
+  list-style: none;
+  padding: 0;
+}
+
+.flash {
+  margin-bottom: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+}
+
+.flash.success {
+  background: #dcfce7;
+}
+
+.flash.danger {
+  background: #fee2e2;
+}
+
+.flash.warning {
+  background: #fef3c7;
+}
+
+.flash.info {
+  background: #e0f2fe;
+}
+
+.chat {
+  margin-top: 2rem;
+}
+
+.chat-log {
+  list-style: none;
+  padding: 0;
+}
+
+.chat-message {
+  margin-bottom: 1rem;
+}
+
+.chat-message.me {
+  text-align: right;
+}
+
+.bubble {
+  display: inline-block;
+  max-width: 80%;
+  background: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+.chat-message.me .bubble {
+  background: #e0f2fe;
+}
+
+.chat .translated {
+  margin-top: 0.35rem;
+  font-size: 0.95rem;
+  color: #0f172a;
+}
+
+.site-footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #94a3b8;
+}
+
+.timeline {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+.timeline li {
+  margin-bottom: 0.5rem;
+}
