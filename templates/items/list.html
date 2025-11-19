@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}상품 목록 · Lauren Brick Market{% endblock %}
+{% block content %}
+  <h1>상품 목록</h1>
+  <div class="grid">
+    {% for item in items %}
+      <article class="card">
+        <h2><a href="{{ url_for('item_detail', item_id=item.id) }}">{{ item.title }}</a></h2>
+        <p>{{ item.description[:160] }}{% if item.description|length > 160 %}...{% endif %}</p>
+        <p class="price">${{ '%.2f'|format(item.price) }}</p>
+        <p class="meta">판매자: {{ item.seller.username }} · 상태: {{ item.status }}</p>
+      </article>
+    {% else %}
+      <p>등록된 상품이 없습니다. 첫 번째 상품을 등록해 보세요!</p>
+    {% endfor %}
+  </div>
+{% endblock %}

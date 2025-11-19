@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}상품 등록 · Lauren Brick Market{% endblock %}
+{% block content %}
+  <h1>새로운 상품 등록</h1>
+  <form method="post" class="form-card">
+    <label>제목
+      <input type="text" name="title" required />
+    </label>
+    <label>설명
+      <textarea name="description" rows="4" required></textarea>
+    </label>
+    <label>가격 (USD)
+      <input type="number" name="price" step="0.01" min="0" required />
+    </label>
+    <button type="submit" class="btn">등록</button>
+  </form>
+{% endblock %}

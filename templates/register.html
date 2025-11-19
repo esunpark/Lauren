@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}회원가입 · Lauren Brick Market{% endblock %}
+{% block content %}
+  <h1>회원가입</h1>
+  <form method="post" class="form-card">
+    <label>사용자 이름
+      <input type="text" name="username" required />
+    </label>
+    <label>언어
+      <select name="language">
+        {% for code, name in supported_languages.items() %}
+          <option value="{{ code }}">{{ name }}</option>
+        {% endfor %}
+      </select>
+    </label>
+    <label>소개글
+      <textarea name="bio" rows="3"></textarea>
+    </label>
+    <button type="submit" class="btn">가입하기</button>
+  </form>
+{% endblock %}
