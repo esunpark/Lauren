@@ -1,4 +1,3 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
 diff --git a/README.md b/README.md
 index fdfcb9517ef9c99acf2ac1ae4aaf3ec13c8a4f56..9e705dc8d647d619ef00f42dcca7fc7f006b9389 100644
 --- a/README.md
@@ -92,6 +91,3 @@ index fdfcb9517ef9c99acf2ac1ae4aaf3ec13c8a4f56..9e705dc8d647d619ef00f42dcca7fc7f
 +- 두 방식 모두 실패하면 "translation unavailable" 메시지로 감싸 원문을 그대로 보여줍니다.
 +
 +새로운 언어를 지원하고 싶다면 `SUPPORTED_LANGUAGES`와 사전 항목을 추가하면 됩니다.
- 
-EOF
-)
