@@ -1,11 +1,6 @@
-diff --git a/README.md b/README.md
-index fdfcb9517ef9c99acf2ac1ae4aaf3ec13c8a4f56..9e705dc8d647d619ef00f42dcca7fc7f006b9389 100644
---- a/README.md
-+++ b/README.md
-@@ -1 +1,86 @@
--# Lauren
+# Lauren
 \ No newline at end of file
-+# Lauren Brick Market
+# Lauren Brick Market
 +
 +레고 및 브릭 수집가를 위한 간단한 마켓플레이스로, [Bricklink](https://www.bricklink.com/v2/main.page)를 참고해 제작했습니다. 사용자는 원하는 언어로 프로필을 설정하고, 상품을 올려 판매하거나 다른 사용자의 상품을 구매할 수 있으며, 거래 중에는 자동 번역되는 채팅으로 소통할 수 있습니다.
 +
